@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: #ffffff;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <script src="JS/three.js"></script>
+  <script src="http://brangerbriz.net/labs/threejs_playGnd/js/Detector.js"></script>
+  <script>
+    if (!Detector.webgl) Detector.addGetWebGLMessage();
+
+    var camera, scene, renderer;
+    var geometry, material, mesh;
+
+    function setup() {
+
+      var W = window.innerWidth,
+        H = window.innerHeight;
+      renderer = new THREE.WebGLRenderer();
+      renderer = new THREE.WebGLRenderer({
+        preserveDrawingBuffer: true
+      });
+      renderer.autoClearColor = false;
+      renderer.setSize(W, H);
+      document.body.appendChild(renderer.domElement);
+
+      camera = new THREE.PerspectiveCamera(50, W / H, 1, 10000);
+      camera.position.z = 500;
+
+      scene = new THREE.Scene();
+      geometry = new THREE.IcosahedronGeometry(145, 0);
+      material = new THREE.MeshNormalMaterial({
+        shading: THREE.SmoothShading,
+        wireframe: true,
+        wireframeLinewidth: 10,
+        // transparent: true,
+        opacity: 1
+      });
+      mesh = new THREE.Mesh(geometry, material);
+      mesh.scale.x = mesh.scale.y = mesh.scale.z = 1;
+      // mesh.rotation.x += 6.09;
+      mesh.rotation.z += 11.72;
+      mesh.rotation.y += 2.533;
+      mesh.castShadow = true;
+      scene.add(mesh);
+
+      wgeometry = new THREE.PlaneGeometry(1050, 1000, 100, 100);
+      wmaterial = new THREE.MeshBasicMaterial({
+        color: 0x000000,
+        wireframe: true,
+        wireframeLinewidth: 20
+      });
+      renderer.shadowMapEnabled = true;
+
+      scene.fog = new THREE.Fog(0xf2f7ff, 1, 9000);
+    }
+
+    function draw() {
+
+      requestAnimationFrame(draw);
+
+      renderer.render(scene, camera);
+      mesh.position.x = Math.cos(Date.now() * 0.001) * 50;
+      mesh.rotation.z = Date.now() * 0.0005;
+
+    }
+
+    setup()
+    draw()
+  </script>
+
+</body>
+
+</html>
