@@ -20,10 +20,11 @@ The biggest problems I faced was the getting the shape to move side to side at v
 
 Check out what I was able to make: 
 ec2-34-204-48-114.compute-1.amazonaws.com/3DSample.html
-JOURNAL
-	For an in-depth  guide to three.js/webGL go to: 
+
+For an in-depth guide to three.js/webGL go to: 
 https://threejs.org/docs/index.html#manual/introduction/Creating-a-scene
 
+JOURNAL
 1.	You will need to set up your HTML file like so:
 a.	<!DOCTYPE html> <html> <head> <meta charset=utf-8> <title>My first three.js app</title> <style> body { margin: 0; } canvas { width: 100%; height: 100% } </style> </head> <body> <script src="js/three.js"></script> <script> // Our Javascript will go here. </script> </body> </html>
 
