@@ -1,4 +1,4 @@
-# webGL
+# Exploring WebGL
 
 This is Moesaeah here, and for my exploration I decided to dive into Interactive 3D and 2D graphics within the web browser. More specifically I used Mozilla’s WebGL (Web Graphics Library). WebGL is a Javascript (JS) API for rendering 2D and 3D graphics in compatible browsers without the need to use Plugins. It does so, by “Introducing an API that closely conforms to OpenGL ES 2.0 that can be used in HTML5 <canvas> elements.
 
